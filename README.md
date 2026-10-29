@@ -78,13 +78,13 @@ Upload [`pictures.md`](templates/pictures.md) and your approved pictures, named 
 
 ## Bonus: pretty charts
 
-Upload [`charts.md`](templates/charts.md) (seven rules: one question per chart, the title is the answer, one accent color, labels on the bars, a source line) and a spreadsheet saved as CSV. Then one line:
+Upload [`chart-guide.md`](templates/chart-guide.md) (what we learned building 24 charts for our inbox audit: make a set of 3 to 5, each answering a different question at a different depth, pick the chart type by its job, the title asks and one line answers, label directly, never rotate labels, and recheck every number: 4 of our written claims were wrong until we did) and a spreadsheet saved as CSV. Then one line:
 
 ```text
-Chart from sample-data.csv: where did our hours go this year?
+Charts from sample-data.csv: where did our hours go this year?
 ```
 
-You get the chart as a PNG on a one-page PDF with two sentences on what it means. Try it with [`sample/sample-data.csv`](sample/sample-data.csv) (made-up hours by task), then use your own export.
+You get a set of charts, each a PNG plus a PDF page with its title, its answer and an honest footnote. Try it with [`sample/sample-data.csv`](sample/sample-data.csv) (made-up hours by task), then use your own export.
 
 ## Fill in your own
 
@@ -95,7 +95,7 @@ You get the chart as a PNG on a one-page PDF with two sentences on what it means
 | [`templates/outlines.md`](templates/outlines.md) | The headings of documents you send again and again | 3 min |
 | `logo.png` | Your logo | 1 min |
 | [`templates/pictures.md`](templates/pictures.md) + `pic-*.png` | Your approved pictures (optional) | 2 min |
-| [`templates/charts.md`](templates/charts.md) | Chart rules. Works as is, swap in your colors (optional) | 1 min |
+| [`templates/chart-guide.md`](templates/chart-guide.md) | Chart rules. Works as is, swap in your colors (optional) | 1 min |
 
 Don't know your hex codes? Upload your logo to the chat and ask for them.
 

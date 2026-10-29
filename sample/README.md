@@ -17,7 +17,7 @@ What each file does:
 - my-writing.md: the voice
 - outlines.md: the shapes of documents that worked
 - pictures.md + pic-*.png: the only pictures it may use
-- charts.md: how charts should look
+- chart-guide.md: how charts should look
 - sample-data.csv: the numbers for the chart
 
 Once you've seen it work, swap in your own from ../templates.
