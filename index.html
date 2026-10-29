@@ -1,0 +1,437 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Docs that look good</title>
+<meta name="description" content="The AI in Context Ep 04 kit: make your first good-looking AI document in 10 minutes, in Claude or ChatGPT.">
+<meta property="og:title" content="Docs that look good">
+<meta property="og:description" content="Make your first good-looking AI document in 10 minutes. Six rules, three files, one line.">
+<meta property="og:image" content="https://lemonbrand.github.io/docs-that-look-good/assets/canvas-hero.jpg">
+<link rel="icon" href="assets/favicon.svg" type="image/svg+xml">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Instrument+Sans:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+/* LWS tokens, from lemonbrand-website apps/web/app/lws-shared.css */
+.lws{--ink:#1D1D20;--paper:#F3EEE2;--card:#FAF7EE;--mustard:#C9A34D;--mustard-ink:#6E5312;--navy:#2F3E59;--coral:#BB6656;--slate:#3E6497;--brick:#AA3E37;--sage:#717F7A;--muted:#EBE5D6;--mutedfg:#5C5A54;--hairline:#D5D1C7}
+*{box-sizing:border-box}
+html,body{margin:0;padding:0}
+body{background:#F3EEE2;color:#1D1D20;font-family:"Instrument Sans",system-ui,sans-serif;-webkit-font-smoothing:antialiased}
+.lws a{color:var(--navy)}
+.lws a:hover{color:var(--ink)}
+.wrap{max-width:1120px;margin:0 auto;padding:0 40px}
+.kicker{font:500 11px ui-monospace,monospace;letter-spacing:.12em;text-transform:uppercase;color:var(--mutedfg)}
+.eyebrow{font:500 12px "Instrument Sans",sans-serif;letter-spacing:.14em;text-transform:uppercase;color:var(--navy)}
+.d1{font:600 56px/1.04 "Instrument Sans",sans-serif;letter-spacing:-.028em;margin:0;text-wrap:balance}
+.d2{font:600 40px/1.08 "Instrument Sans",sans-serif;letter-spacing:-.025em;margin:0;text-wrap:balance}
+.d4{font:600 21px/1.2 "Instrument Sans",sans-serif;letter-spacing:-.012em;margin:0}
+.lead{font:400 18px/1.55 "Instrument Sans",sans-serif;color:var(--ink);margin:0;max-width:56ch}
+.body{font:400 15px/1.55 "Instrument Sans",sans-serif;margin:0}
+.small{font:400 13px/1.5 "Instrument Sans",sans-serif;color:var(--mutedfg);margin:0}
+.btn{display:inline-flex;align-items:center;justify-content:center;height:48px;padding:0 24px;border-radius:99px;font:500 15px "Instrument Sans",sans-serif;text-decoration:none;border:0;cursor:pointer}
+.btn-primary{background:var(--mustard);color:var(--ink)!important}
+.btn-ink{background:var(--ink);color:var(--paper)!important}
+.btn-line{background:transparent;color:var(--ink)!important;border:1px solid var(--hairline)}
+.cardbox{background:var(--card);border:1px solid var(--hairline);border-radius:8px}
+.stepnum{width:34px;height:34px;border-radius:99px;background:var(--navy);color:var(--paper);display:flex;align-items:center;justify-content:center;font:600 15px "Instrument Sans",sans-serif;flex-shrink:0}
+.stepnum.gold{background:var(--mustard);color:var(--ink)}
+
+/* nav */
+.nav{display:flex;align-items:center;justify-content:space-between;height:68px;border-bottom:1px solid var(--hairline)}
+.nav img{height:22px;display:block}
+
+/* sections */
+.sec{padding:88px 0}
+.sec.on-card{background:var(--card);border-top:1px solid var(--hairline);border-bottom:1px solid var(--hairline)}
+.sechead{display:flex;flex-direction:column;gap:14px;margin-bottom:40px;max-width:720px}
+
+/* hero */
+.hero{display:grid;grid-template-columns:1.05fr 1fr;gap:56px;align-items:center;padding:72px 0 88px}
+.hero .copy{display:flex;flex-direction:column;gap:24px}
+.hero .ctas{display:flex;gap:12px;flex-wrap:wrap}
+.facts{display:flex;flex-wrap:wrap;gap:0;font:400 13px "Instrument Sans",sans-serif;color:var(--mutedfg)}
+.facts span{padding:0 14px;border-left:1px solid var(--hairline)}
+.facts span:first-child{border-left:none;padding-left:0}
+.heroart{position:relative}
+.heroart .sheet{display:block;background:#fff;border:1px solid var(--hairline);border-radius:8px;padding:10px;transform:rotate(1.6deg);box-shadow:0 12px 28px -6px rgb(29 29 32/.14)}
+.heroart .sheet img{display:block;width:100%;height:auto;border-radius:4px}
+.heroart .tape{position:absolute;top:-12px;left:42%;width:96px;height:26px;background:#E9D8A6;opacity:.9;transform:rotate(-4deg);border-radius:2px}
+.heroart .cap{margin-top:16px;text-align:right}
+
+/* steps */
+.steps{display:grid;grid-template-columns:repeat(4,1fr);gap:16px}
+.step{padding:24px;display:flex;flex-direction:column;gap:14px}
+.step .where{display:flex;flex-direction:column;gap:6px;border-top:1px solid var(--hairline);padding-top:14px;margin-top:auto}
+.step .where div{font:400 13px/1.45 "Instrument Sans",sans-serif;color:var(--mutedfg)}
+.step .where b{font-weight:600;color:var(--ink)}
+.tested{display:flex;gap:16px;margin-top:20px;flex-wrap:wrap}
+.pill{display:inline-flex;align-items:center;gap:10px;height:40px;padding:0 16px;border-radius:99px;background:var(--muted);font:400 14px "Instrument Sans",sans-serif}
+.dot{width:9px;height:9px;border-radius:99px;background:var(--mustard)}
+
+/* copy blocks */
+.copyblock{position:relative;background:var(--card);border:1px solid var(--hairline);border-left:4px solid var(--mustard);border-radius:8px;overflow:hidden}
+.copyblock .bar{display:flex;align-items:center;justify-content:space-between;gap:12px;padding:12px 16px;border-bottom:1px solid var(--hairline);background:var(--muted)}
+.copyblock pre{margin:0;padding:20px 22px;white-space:pre-wrap;word-wrap:break-word;font:400 14px/1.6 ui-monospace,SFMono-Regular,Menlo,monospace;color:var(--ink)}
+.copybtn{height:36px;padding:0 16px;border-radius:99px;border:0;background:var(--ink);color:var(--paper);font:500 14px "Instrument Sans",sans-serif;cursor:pointer;flex-shrink:0}
+.copybtn.done{background:var(--sage)}
+
+/* rules */
+.rules-grid{display:grid;grid-template-columns:1.15fr 1fr;gap:40px;align-items:start}
+.rules{display:grid;grid-template-columns:1fr 1fr;gap:12px}
+.rule{padding:20px;display:flex;flex-direction:column;gap:10px}
+.rule .top{display:flex;align-items:center;gap:12px}
+
+/* files */
+.files{display:grid;grid-template-columns:repeat(4,1fr);gap:16px}
+.file{padding:22px;display:flex;flex-direction:column;gap:10px;text-decoration:none;color:var(--ink)!important;transition:transform 200ms cubic-bezier(.2,0,0,1),box-shadow 200ms cubic-bezier(.2,0,0,1)}
+.file:hover{transform:translateY(-4px);box-shadow:0 14px 28px -12px rgb(29 29 32/.25)}
+.file .name{font:500 13px ui-monospace,monospace;color:var(--navy)}
+.file .t{font:500 12px "Instrument Sans",sans-serif;color:var(--mustard-ink);background:#F1E5C4;border-radius:99px;padding:3px 10px;align-self:flex-start}
+.notice{margin-top:20px;display:flex;align-items:center;gap:12px;background:var(--muted);border-radius:10px;padding:14px 18px}
+
+/* pictures */
+.pics{display:grid;grid-template-columns:1fr 1fr;gap:16px}
+.pic{padding:28px;display:flex;flex-direction:column;gap:16px;border-radius:16px}
+.pic .art{height:230px;display:flex;align-items:center;justify-content:center;background:var(--paper);border:1px solid var(--hairline);border-radius:10px;overflow:hidden}
+.pic .art img{max-height:100%;max-width:100%;display:block}
+.pic .art img.tilt{transform:rotate(-4deg);max-height:190px}
+.pic .row{display:flex;gap:10px;flex-wrap:wrap}
+
+.picstrip{display:grid;grid-template-columns:repeat(5,1fr);gap:16px;align-items:center}
+.picstrip img{width:100%;height:170px;object-fit:contain;background:var(--card);border:1px solid var(--hairline);border-radius:10px;padding:14px}
+.chartrules{margin:4px 0 0;padding-left:20px;display:flex;flex-direction:column;gap:6px;font:400 15px/1.5 "Instrument Sans",sans-serif}
+code{font:500 .9em ui-monospace,monospace;background:var(--muted);padding:1px 6px;border-radius:4px}
+/* drive */
+.drive{display:grid;grid-template-columns:repeat(4,1fr);gap:16px}
+.folder{padding:22px;display:flex;flex-direction:column;gap:8px}
+.folder .tab{width:46px;height:10px;background:var(--mustard);border-radius:4px 4px 0 0;margin:-22px 0 10px 0}
+
+/* cta */
+.cta{background:var(--navy);color:var(--paper);border-radius:16px;padding:56px;display:grid;grid-template-columns:1.3fr 1fr;gap:40px;align-items:center}
+.cta .d2{color:var(--paper)}
+.cta p{color:#C6D3E6}
+.cta .ctas{display:flex;flex-direction:column;gap:12px;align-items:flex-start}
+.cta .btn-line{color:var(--paper)!important;border-color:#55657F}
+.cta img{width:240px;transform:rotate(5deg)}
+
+footer{padding:40px 0 56px;border-top:1px solid var(--hairline);margin-top:88px}
+footer .wrap{display:flex;justify-content:space-between;align-items:center;gap:24px;flex-wrap:wrap}
+footer img{height:18px}
+
+@media (max-width:960px){
+  .wrap{padding:0 20px}
+  .hero{grid-template-columns:1fr;gap:40px;padding:40px 0 56px}
+  .d1{font-size:38px;line-height:1.06}
+  .d2{font-size:29px;line-height:1.1}
+  .lead{font-size:16px}
+  .sec{padding:56px 0}
+  .sechead{margin-bottom:28px}
+  .steps,.files,.drive{grid-template-columns:1fr 1fr}
+  .picstrip{grid-template-columns:repeat(3,1fr)}
+  .rules-grid{grid-template-columns:1fr;gap:24px}
+  .pics{grid-template-columns:1fr}
+  .cta{grid-template-columns:1fr;padding:32px 24px}
+  .cta img{display:none}
+  footer{margin-top:56px}
+}
+@media (max-width:560px){
+  .steps,.files,.drive,.rules{grid-template-columns:1fr}
+  .picstrip{grid-template-columns:1fr 1fr}
+  .picstrip img{height:130px}
+  .nav .kicker{display:none}
+  .copyblock pre{font-size:13px;padding:16px}
+  .hero .ctas .btn{flex:1 1 100%}
+  .facts{gap:6px 16px}
+  .facts span{border:0;padding:0}
+}
+@media (prefers-reduced-motion:reduce){.file{transition:none}.file:hover{transform:none}}
+</style>
+</head>
+<body class="lws">
+
+<div class="wrap">
+  <nav class="nav">
+    <a href="https://lemonbrand.io" aria-label="Lemonbrand"><img src="assets/lemonbrand-integrated-ink.svg" alt="Lemonbrand"></a>
+    <span class="kicker">AI in Context · Ep 04 · Oct 29, 2026</span>
+  </nav>
+
+  <header class="hero">
+    <div class="copy">
+      <span class="eyebrow">Docs that look good</span>
+      <h1 class="d1">Agents are amazing at bureaucracy.</h1>
+      <p class="lead">Bureaucracy is documents plus rules. It repeats, it follows rules, it can be checked. Give an agent your rules once and every document comes out one page, in your look, in your voice, in about 2 minutes.</p>
+      <div class="ctas">
+        <a class="btn btn-primary" href="#first">Make your first document</a>
+        <a class="btn btn-ink" href="https://github.com/Lemonbrand/docs-that-look-good/archive/refs/heads/main.zip">Download the kit</a>
+      </div>
+      <div class="facts"><span>Claude or ChatGPT</span><span>No code</span><span>10 minutes to set up</span></div>
+    </div>
+    <div class="heroart">
+      <span class="tape" aria-hidden="true"></span>
+      <a class="sheet" href="canvas/ep04-canvas.png"><img src="assets/canvas-hero.jpg" alt="The hand-drawn canvas from the show: Agents are amazing at bureaucracy." width="1200" height="552"></a>
+      <p class="small cap">The canvas from the show. <a href="canvas/ep04-canvas.png">See all of it</a></p>
+    </div>
+  </header>
+</div>
+
+<section class="sec on-card" id="first">
+  <div class="wrap">
+    <div class="sechead">
+      <span class="eyebrow">Make your first document in 10 minutes</span>
+      <h2 class="d2">Four steps. Then it's one line every time.</h2>
+    </div>
+    <div class="steps">
+      <div class="cardbox step" style="background:var(--paper)">
+        <span class="stepnum">1</span>
+        <h3 class="d4">Make a project.</h3>
+        <p class="body">A project is a folder the AI reads before every chat. Your rules live there, so you never paste them again.</p>
+        <div class="where"><div><b>Claude:</b> Projects &gt; New project</div><div><b>ChatGPT:</b> Projects &gt; +</div></div>
+      </div>
+      <div class="cardbox step" style="background:var(--paper)">
+        <span class="stepnum">2</span>
+        <h3 class="d4">Drop in 3 files.</h3>
+        <p class="body">Your brand, your writing, your outlines, plus your logo. Start with the sample to see it work.</p>
+        <div class="where"><div><b>Claude:</b> upload to the project's files</div><div><b>ChatGPT:</b> Sources tab &gt; Add sources</div></div>
+      </div>
+      <div class="cardbox step" style="background:var(--paper)">
+        <span class="stepnum">3</span>
+        <h3 class="d4">Paste the six rules.</h3>
+        <p class="body">Copy the block below into the project's instructions. That's the whole trick.</p>
+        <div class="where"><div><b>Claude:</b> project instructions</div><div><b>ChatGPT:</b> project settings &gt; Instructions</div></div>
+      </div>
+      <div class="cardbox step" style="background:var(--paper)">
+        <span class="stepnum gold">4</span>
+        <h3 class="d4">Ask in one line.</h3>
+        <p class="body">The document name, then your rough notes. You get a one-page PDF and a list of what it guessed.</p>
+        <div class="where"><div><b>Both:</b> new chat inside the project</div></div>
+      </div>
+    </div>
+    <div class="tested">
+      <span class="pill"><span class="dot"></span>Tested in Claude: PDF in about 2 min</span>
+      <span class="pill"><span class="dot" style="background:var(--navy)"></span>Tested in ChatGPT (Thinking): 1 min 52 s</span>
+    </div>
+  </div>
+</section>
+
+<section class="sec" id="rules">
+  <div class="wrap">
+    <div class="sechead">
+      <span class="eyebrow">Step 3 · The six rules</span>
+      <h2 class="d2">Paste this into the project instructions.</h2>
+    </div>
+    <div class="rules-grid">
+      <div class="copyblock">
+        <div class="bar"><span class="kicker">Project instructions</span><button class="copybtn" data-copy="rules-text">Copy the rules</button></div>
+<pre id="rules-text">You make documents that look good and are right. Read the project files before every document.
+
+Every document, every time:
+1. Page. Letter size, one page unless I ask for more. Deliver a PDF I can download.
+2. Outline. Start from the outline in outlines.md that fits. If none fits, use 3 to 5 plain headings.
+3. Few words. Under 300 words a page. Short sentences. One idea per section. Use numbered steps or a small table when it saves words.
+4. My voice. Write like the examples in my-writing.md: same tone, same sentence length, same words.
+5. My look. Use the logo, colors and font in brand.md. Logo top left, lots of white space, one accent color, no clip art.
+6. Check. Every fact comes from my message or the project files. Never invent names, prices, dates or numbers. Under the PDF, list anything you guessed or could not confirm.
+
+If something you need is missing, make the document anyway with a clear [blank] and tell me what to fill.</pre>
+      </div>
+      <div class="rules">
+        <div class="cardbox rule"><div class="top"><span class="stepnum">1</span><h3 class="d4">Page</h3></div><p class="small">Without a page size you get a chat answer, not a document.</p></div>
+        <div class="cardbox rule"><div class="top"><span class="stepnum">2</span><h3 class="d4">Outline</h3></div><p class="small">Your best documents already have a shape. Give it the shape, it fills it.</p></div>
+        <div class="cardbox rule"><div class="top"><span class="stepnum">3</span><h3 class="d4">Few words</h3></div><p class="small">AI writes long by default. A page you read in one minute gets read.</p></div>
+        <div class="cardbox rule"><div class="top"><span class="stepnum">4</span><h3 class="d4">My voice</h3></div><p class="small">Three things you wrote yourself beat any "write in a friendly tone".</p></div>
+        <div class="cardbox rule"><div class="top"><span class="stepnum">5</span><h3 class="d4">My look</h3></div><p class="small">Logo, colors, one font, one accent. That's most of looking professional.</p></div>
+        <div class="cardbox rule"><div class="top"><span class="stepnum gold">6</span><h3 class="d4">Check</h3></div><p class="small">It lists what it guessed instead of making it up. You check that list, not the whole page.</p></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="sec on-card" id="ask">
+  <div class="wrap">
+    <div class="rules-grid">
+      <div class="sechead" style="margin-bottom:0">
+        <span class="eyebrow">Step 4 · Ask in one line</span>
+        <h2 class="d2">The document name, then your notes.</h2>
+        <p class="lead">This is the exact prompt we ran live with the sample files. Rough notes are fine: the rules turn them into a page. Under the PDF it lists anything it had to guess, so read that list before you send.</p>
+      </div>
+      <div class="copyblock">
+        <div class="bar"><span class="kicker">The prompt</span><button class="copybtn" data-copy="prompt-text">Copy the prompt</button></div>
+<pre id="prompt-text">Welcome sheet for new clients.
+
+My notes: we do monthly bookkeeping and payroll for small shops. Clients send receipts through the Dext app (photo is fine), bank access read-only, payroll hours by the 25th. Books closed by the 10th of the next month. They get a one-page summary every month. Questions: text Dana at 519-555-0142, same-day answer on weekdays.</pre>
+      </div>
+    </div>
+    <div class="rules-grid" style="margin-top:24px">
+      <div style="display:flex;flex-direction:column;gap:10px;padding-top:8px"><span class="eyebrow">Then try a second one</span><p class="body">Same project, different document: a proposal for a made-up florist. Same rules, same look, a different outline from <code>outlines.md</code>.</p></div>
+      <div class="copyblock">
+        <div class="bar"><span class="kicker">Second prompt</span><button class="copybtn" data-copy="prompt2-text">Copy the prompt</button></div>
+<pre id="prompt2-text">One-page proposal for Bloom &amp; Twig Florist.
+
+My notes: owner Priya, 2 shops, 6 staff. Receipts live in a shoebox, payroll done by hand every two weeks. She wants the books closed every month and payroll off her plate. Our price: $450 a month, starts November 1.</pre>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="sec" id="your-pictures">
+  <div class="wrap">
+    <div class="sechead">
+      <span class="eyebrow">Step 5 · Add your own pictures</span>
+      <h2 class="d2">One picture per page, only ones you approved.</h2>
+      <p class="lead">Upload <code>pictures.md</code> and your pictures named <code>pic-something.png</code>. It picks the one that fits the page and never invents clip art. The sample comes with five.</p>
+    </div>
+    <div class="picstrip">
+      <img src="sample/pic-checklist-chase.png" alt="Paper-collage checklist running between papers">
+      <img src="sample/pic-contract-check.png" alt="Isometric contract with an agent cube checking it">
+      <img src="sample/pic-paperwork-folder.png" alt="Isometric pile of papers turning into one folder">
+      <img src="sample/pic-team-handoff.png" alt="Paper-collage hand-off of a letter between two people">
+      <img src="sample/pic-weekly-report.png" alt="Isometric printer with a weekly report and a bar chart">
+    </div>
+    <div class="tested">
+      <a class="btn btn-line" href="https://github.com/Lemonbrand/docs-that-look-good/blob/main/templates/pictures.md">pictures.md</a>
+      <a class="btn btn-line" href="#pictures">Make your own set</a>
+    </div>
+  </div>
+</section>
+
+<section class="sec on-card" id="charts">
+  <div class="wrap">
+    <div class="rules-grid">
+      <div class="sechead" style="margin-bottom:0">
+        <span class="eyebrow">Bonus · Pretty charts</span>
+        <h2 class="d2">A spreadsheet in, a chart you'd show a client out.</h2>
+        <p class="lead">Upload <code>charts.md</code> and a spreadsheet saved as CSV. You get the chart as a PNG on a one-page PDF, with two sentences on what it means.</p>
+        <ol class="chartrules">
+          <li>One question per chart. The title is the answer.</li>
+          <li>Bars to compare, a line for time. No pie, no 3D.</li>
+          <li>One accent color on what matters, grey for the rest.</li>
+          <li>Labels on the bars, no legend, sorted largest first.</li>
+          <li>A source line, and every number checked.</li>
+        </ol>
+      </div>
+      <div style="display:flex;flex-direction:column;gap:16px">
+        <div class="copyblock">
+          <div class="bar"><span class="kicker">The chart prompt</span><button class="copybtn" data-copy="chart-text">Copy the prompt</button></div>
+<pre id="chart-text">Chart from sample-data.csv: where did our hours go this year?</pre>
+        </div>
+        <div class="tested" style="margin-top:0">
+          <a class="btn btn-ink" href="https://github.com/Lemonbrand/docs-that-look-good/blob/main/templates/charts.md">charts.md</a>
+          <a class="btn btn-line" href="sample/sample-data.csv">sample-data.csv (made up)</a>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="sec" id="files">
+  <div class="wrap">
+    <div class="sechead">
+      <span class="eyebrow">Your own files</span>
+      <h2 class="d2">Fill them with your own. About 10 minutes.</h2>
+      <p class="lead">Try the sample first, then open the blank templates and replace it bit by bit.</p>
+    </div>
+    <div class="files">
+      <a class="cardbox file" href="https://github.com/Lemonbrand/docs-that-look-good/blob/main/templates/brand.md"><span class="name">brand.md</span><h3 class="d4">Your look</h3><p class="small">Colors (hex codes), your font, your footer line. Don't know your hex codes? Upload your logo and ask.</p><span class="t">3 min</span></a>
+      <a class="cardbox file" href="https://github.com/Lemonbrand/docs-that-look-good/blob/main/templates/my-writing.md"><span class="name">my-writing.md</span><h3 class="d4">Your voice</h3><p class="small">Three short things you wrote yourself, not with AI. An email, a team note, a reminder.</p><span class="t">3 min</span></a>
+      <a class="cardbox file" href="https://github.com/Lemonbrand/docs-that-look-good/blob/main/templates/outlines.md"><span class="name">outlines.md</span><h3 class="d4">Your shapes</h3><p class="small">The headings of documents you send again and again. Only the headings, in order.</p><span class="t">3 min</span></a>
+      <a class="cardbox file" href="https://github.com/Lemonbrand/docs-that-look-good/tree/main/sample"><span class="name">sample/</span><h3 class="d4">The tested set</h3><p class="small">All of it filled in, plus a logo and the prompt. Drop it in as is and watch it work.</p><span class="t">Start here</span></a>
+    </div>
+    <div class="notice"><span class="dot"></span><p class="small" style="color:var(--ink)">The sample is Maple Street Bookkeeping, a made-up business. The address, the email, Dana, the 555 phone number, the hours and the florist are all made up.</p></div>
+  </div>
+</section>
+
+<section class="sec on-card" id="pictures">
+  <div class="wrap">
+    <div class="sechead">
+      <span class="eyebrow">Make your own pictures</span>
+      <h2 class="d2">Stock looks like everyone. Yours looks like you.</h2>
+      <p class="lead">One style, many pictures. Approve the good ones into a Library folder and every next document pulls from it.</p>
+    </div>
+    <div class="pics">
+      <div class="cardbox pic" style="background:var(--paper)">
+        <div class="art"><img class="tilt" src="pictures/chatgpt/example-output.png" alt="A paper-collage magnifying glass over an envelope, made in ChatGPT"></div>
+        <span class="kicker">ChatGPT · your style · about 45 s</span>
+        <h3 class="d4">Paper collage, from one prompt.</h3>
+        <p class="small">Attach two style images, paste the prompt, change only the subject line. Keep the style part the same so the set matches.</p>
+        <div class="row">
+          <button class="copybtn" data-copy="img-text">Copy the prompt</button>
+          <a class="btn btn-line" style="height:36px;padding:0 16px;font-size:14px" href="https://github.com/Lemonbrand/docs-that-look-good/tree/main/pictures/chatgpt">Style images</a>
+        </div>
+<pre id="img-text" hidden>STYLE (keep this part the same every time; attach the two reference images)
+Make one illustration in the exact style of the two attached images: a physical paper collage.
+Cream paper cut-out with a slightly torn edge, imperfect soft-black ink outlines, colored paper
+with visible fibers and halftone dots, a strip of kraft tape, a small soft shadow right under it.
+One object only, centered with lots of empty space around it. Transparent background. No text, no letters.
+
+SUBJECT (change only this line)
+A signed contract with a fountain pen resting on it.</pre>
+      </div>
+      <div class="cardbox pic" style="background:var(--paper)">
+        <div class="art"><img src="sample/pic-contract-check.png" alt="An isometric contract on a desk with a gold agent cube checking it, drawn as code in Claude"></div>
+        <span class="kicker">Claude · drawn as code · about 2 min</span>
+        <h3 class="d4">Isometric scenes, from a tiny library.</h3>
+        <p class="small">A Claude project with two Python files. You ask for a scene, it writes the drawing code and shows you the picture. Same look every time, and you can edit it.</p>
+        <div class="row">
+          <a class="btn btn-ink" style="height:36px;padding:0 16px;font-size:14px" href="https://github.com/Lemonbrand/docs-that-look-good/tree/main/pictures/claude-iso">Get the project files</a>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="sec" id="drive">
+  <div class="wrap">
+    <div class="sechead">
+      <span class="eyebrow">Keep it in your Drive, not in the chat</span>
+      <h2 class="d2">Four folders and you stop starting from zero.</h2>
+    </div>
+    <div class="drive">
+      <div class="cardbox folder"><span class="tab"></span><h3 class="d4">Brand</h3><p class="small">Logo, colors, your writing.</p></div>
+      <div class="cardbox folder"><span class="tab"></span><h3 class="d4">Library</h3><p class="small">Pictures you approved.</p></div>
+      <div class="cardbox folder"><span class="tab"></span><h3 class="d4">Templates</h3><p class="small">Outlines that worked.</p></div>
+      <div class="cardbox folder"><span class="tab"></span><h3 class="d4">Docs</h3><p class="small">Finished PDFs.</p></div>
+    </div>
+    <div class="tested">
+      <a class="btn btn-line" href="https://drive.google.com/drive/folders/1QGie-9-fDio3Y9-Bb89haRqZoyRQExNK">The kit in Google Drive</a>
+      <a class="btn btn-line" href="after-brief.pdf">The 4-page brief from the show (PDF)</a>
+      <a class="btn btn-line" href="https://github.com/Lemonbrand/docs-that-look-good">Everything on GitHub</a>
+    </div>
+  </div>
+</section>
+
+<div class="wrap">
+  <section class="cta">
+    <div style="display:flex;flex-direction:column;gap:16px">
+      <span class="kicker" style="color:#C6D3E6">AI in Context · live, free, Thursdays 1 PM ET</span>
+      <h2 class="d2">One real job, live, every Thursday.</h2>
+      <p class="body">Simon Bergeron teaches managing agents in plain words. Bring your own work and leave with it done.</p>
+      <div class="ctas" style="flex-direction:row;flex-wrap:wrap">
+        <a class="btn btn-primary" href="https://luma.com/ai-in-context">See the next sessions</a>
+        <a class="btn btn-line" href="https://lemonbrand.io/start">More from Simon</a>
+      </div>
+    </div>
+    <div style="display:flex;justify-content:center"><img src="assets/automation-engine.webp" alt=""></div>
+  </section>
+</div>
+
+<footer>
+  <div class="wrap">
+    <a href="https://lemonbrand.io" aria-label="Lemonbrand"><img src="assets/lemonbrand-integrated-ink.svg" alt="Lemonbrand"></a>
+    <p class="small">Made by Simon Bergeron. Use it, change it, share it.</p>
+  </div>
+</footer>
+
+<script>
+document.querySelectorAll('[data-copy]').forEach(function(b){
+  var label=b.textContent;
+  b.addEventListener('click',function(){
+    var t=document.getElementById(b.getAttribute('data-copy')).textContent;
+    function ok(){b.textContent='Copied';b.classList.add('done');setTimeout(function(){b.textContent=label;b.classList.remove('done')},1800)}
+    if(navigator.clipboard&&window.isSecureContext){navigator.clipboard.writeText(t).then(ok,fallback)}else{fallback()}
+    function fallback(){var a=document.createElement('textarea');a.value=t;a.style.position='fixed';a.style.opacity='0';document.body.appendChild(a);a.select();try{document.execCommand('copy');ok()}catch(e){}document.body.removeChild(a)}
+  });
+});
+</script>
+</body>
+</html>
